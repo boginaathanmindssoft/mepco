@@ -248,3 +248,4 @@ v.1.1
 	Removing the folder template. The template was just an example and confused lot of people.
 	Fully compatible with Codeigniter versions 1.7.x , 2.0.0 - 2.0.3.
 	Creation of new field type : "invisible". Very useful if you use callbacks.
+
