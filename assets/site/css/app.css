@@ -1,0 +1,130 @@
+body {
+  background-color: white;
+  color: #666666;
+  font-family: "Open sans", Sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+#contentWrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+#contentLeft {
+  z-index: 10;
+  width: 270px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #f0eff4;
+}
+
+/*#contentRight {
+  padding: 1.3rem 2rem;
+  margin-left: 280px;
+  /*margin-top: -210px;/
+  top: 0;
+}*/
+
+#contentRight {
+    padding: 1.3rem 2rem;
+    margin-left: 280px;
+    top: 0;
+    position: relative;
+    margin-top: -365px;
+}
+
+#leftNavigation {
+  margin: 0.1rem 0;
+}
+#leftNavigation, #leftNavigation li ul {
+  list-style: none;
+  padding: 0;
+}
+#leftNavigation li {
+  padding: 5px 0px;
+}
+#leftNavigation li a {
+  /*font-size: 0.875rem;*/
+  display: block;
+  padding: 0.8rem 1rem 0.8rem 3rem;
+  color: #333;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  position: relative;
+  -webkit-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+}
+#leftNavigation li a, #leftNavigation li a .leftNavIcon {
+  line-height: 120%;
+}
+#leftNavigation li a .leftNavIcon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3rem;
+  padding: 0.8rem 0;
+  text-align: center;
+}
+#leftNavigation li a:hover {
+  color: #844a4c;
+}
+#leftNavigation li ul {
+  display: none;
+  margin: 0;
+  background-color: #17232f;
+}
+#leftNavigation li ul li a {
+  border-bottom: solid 1px #233547;
+}
+#leftNavigation li ul li:last-child a {
+  border-bottom: none;
+}
+#leftNavigation li ul li.active a {
+  color: white;
+}
+#leftNavigation li.active > a {
+  color: white;
+}
+#leftNavigation li.active ul {
+  display: block;
+}
+#leftNavigation > li.active {
+    background-color: #844a4c;
+}
+#leftNavigation > li {
+    border-bottom: solid 1px #dfdee0;
+}
+.sidebar-badge {
+    display: inline-block;
+    min-width: 24px;
+    height: 24px;
+    line-height: 24px;
+    padding: 0 3px;
+    font-size: 13px;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    color: #844a4c;
+    background-color: #dcdcdc;
+    position: absolute;
+    right: 16px;
+    top: 5px;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.clickable.active a{
+  border-bottom: none;
+}

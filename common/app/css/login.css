@@ -1,0 +1,25 @@
+.d-block {
+    display: block;
+}
+.site-logo img {
+    height: 100px;
+    width: auto;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #814e4b !important;
+    border-color: #814e4b !important;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #814e4b !important;
+    border-color: #9e7c79 !important;
+}
+.btn-primary:active {
+    color: #fff;
+    background-color: #814e4b !important;
+    border-color: #9e7c79 !important;
+}
+.button-loader{
+    width: 5%;
+}
