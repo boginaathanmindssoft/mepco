@@ -211,6 +211,16 @@ class Products_model extends CI_Model
         //echo $this->db->last_query();
 		return $result;
     }
+    public function get_product_grade_details_by_id($product_id){
+        $where = '(t1.product_tran_id ="'.$product_id.'" and t1.status = 1)';
+        $this->db->select('*');
+        $this->db->from('tbl_product_grade as t1');
+        $this->db->where($where);
+        $query = $this->db->get();
+        $result = $query->result();
+        //echo $this->db->last_query();
+        return $result;
+    }
     public function get_application_details_by_id($product_id){
         $where = '(t1.tran_id ="'.$product_id.'" and t1.status = 1)';
         $this->db->select('*');

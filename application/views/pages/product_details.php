@@ -131,6 +131,182 @@ if(file_exists($download_file_path) == false && !empty($file_path)){
 
 </div>
 
+
+
+
+
+
+
+
+
+
+
+<div class="center">
+<table class="product-grades-table" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+  <tr>
+    <td>
+      <form id="compareProducts" name="compareProducts">
+        <table id="productListing" class="table table-striped product-view full-responsive smartphone" cellpadding="5" cellspacing="1" width="100%">
+          <tbody>
+          <tr>
+            <th class="product-grades-table_pname" align="left" height="24">
+              Product Name
+            </th>
+            <th class="product-grades-table_tds" align="left" height="24">
+              Technical Data Sheet
+            </th>
+            <th class="product-grades-table_shades" align="left" height="24">
+              Colour shades
+            </th>
+            <th class="product-grades-table_markets" align="left" height="24">
+              Compare Up To 3 Products
+            </th>
+          </tr>
+
+          <?php
+          foreach($product_grade as $value){   
+            ?>
+            <tr>
+              <td data-label="product name">
+                <a data-toggle="modal" id="openLayer<?php echo $value->grade_id; ?>" href="#pDetail<?php echo $value->grade_id; ?>" hidefocus="true" style="outline: none;">
+                  <?php echo $value->grade_name; ?>
+                    
+                  </a>
+              </td>
+              <td data-label="technical data sheet">
+
+                <?php if(isset($value->file_url)){
+                  ?>
+                  <a href="<?php echo $value->file_url; ?>" target="_new" class="fileicon" hidefocus="true" style="outline: none;">PDF</a>
+                  <?php
+                }
+                ?>
+              </td>
+              <td data-label="Colour shades">
+                Silver
+              </td>
+              <td class="static-field" data-label="compare up to 3 products">
+                <input type="checkbox" name="ckb" value="4024">
+              </td>
+            </tr>
+          <?php
+          }
+          ?>
+          
+          
+          
+          
+                   
+          
+          <tr>
+            <td colspan="3" data-label="
+              product name
+            ">&nbsp;</td>
+            <td data-label="
+              technical data sheet
+            ">
+              <button onclick="compare(this);" type="button" class="btn btn-primary" data-dismiss="modal" data-rootlevel="1" hidefocus="true" style="outline: none;">
+                Compare
+              </button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </form>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+
+<div class="modal fade" id="compareLayer" tabindex="-1" role="dialog" aria-labelledby="productComparison" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-footer" style="height: 20px;padding-top:0">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      </div>
+      <div class="modal-body"><div style="float:left;">
+    <img src="/assets/default/images/logo/eckart_mt1514886074d.png" pagespeed_no_defer="">
+</div>
+<div style="float:right;">
+    <img src="typo3conf/ext/drive_eckartproductsviewer/assets/icons/endorsement_rgb.gif" pagespeed_no_defer=""><br>
+
+</div>
+
+<div style="clear:both"></div>
+
+<div style="clear: both;height: 50px;"></div></div>
+      <div class="modal-footer">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </div>
 
 

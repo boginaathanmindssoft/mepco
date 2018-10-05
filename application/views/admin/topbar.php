@@ -18,9 +18,14 @@
                    <!--  <li>
                         <a href="<?php echo site_url('admin/dashboard')?>">DASHBOARD</a>
                     </li> -->
-                     <li>
+                    <!-- <li>
                         <a href='<?php echo site_url('admin/products')?>'>PRODUCTS</a>
-                    </li>
+                    </li> -->
+
+                    <li><a href='<?php echo site_url('admin/products')?>'>PRODUCTS</a></li>
+                    <li><a href="<?php echo site_url('admin/product_grade')?>">GRADES</a></li>
+
+
                     <li>
                         <a href='<?php echo site_url('admin/applications')?>'>APPLICATIONS</a>
                     </li>

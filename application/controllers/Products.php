@@ -153,8 +153,12 @@ class Products extends CI_Controller {
 
 
 		$result = $this->products_model->get_product_details_by_id($product_id);
+		$product_grade_details = $this->products_model->get_product_grade_details_by_id($product_id);
 		$data["product_id"] =  isset($result->tran_id)?$result->tran_id:0;
 		$data["product_name"] =  isset($result->trans_title)?$result->trans_title:'';
+		$data["product_grade"] =  $product_grade_details;
+
+
 		$data["meta_title"] = $data["product_name"]."| Products | Mepco - Metal Powder Company";
 
 		$data["search_title"] = (isset($searchBoxTitle) && $searchBoxTitle == true)?$data["product_name"]:"";
@@ -172,7 +176,6 @@ class Products extends CI_Controller {
 		$data["assets_img_path"] = $this->assets_img_path;
 
 		$data["product_category_list"] = $this->generateProductsSidebarList();
-
 
 
 

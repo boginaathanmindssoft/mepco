@@ -1053,6 +1053,63 @@ class Admin extends CI_Controller {
 
 	}
 
+	public function product_grade()
+	{
+		try{
+			$get_product_list = $this->get_product_list(1);
+			$crud = new grocery_CRUD();
+			$crud->set_theme('mepco');
+			$crud->set_table('tbl_product_grade');
+			$crud->set_subject('Product Grades');
+
+			$crud->required_fields(array('grade_name','grade_description','product_tran_id', 'grade_color_shade','status'));
+
+			$crud->set_rules('grade_name', 'Title', 'trim|required');
+			/*$crud->callback_before_insert(array($this,'application_title_check_before_insert'));
+			$crud->callback_before_update(array($this,'application_title_check_before_update'));*/
+
+			$crud->fields('grade_name', 'product_tran_id','grade_color_shade','file_url','grade_description','status');
+			$crud->order_by('product_tran_id','desc');
+
+			$crud->display_as('grade_name','Title');
+			$crud->display_as('product_tran_id','Product');
+			$crud->display_as('grade_description','Details');
+			$crud->display_as('grade_color_shade','Color');
+			$crud->set_field_upload	('file_url','assets/uploads/files');
+
+			$crud->unset_columns(
+				array('file_url','grade_description', 'status', 'file_url')
+			);
+
+		/*	$crud->callback_add_field('priority', function () {
+				$last_priority = $this->getLastPriority('tbl_application');
+				$last_priority += 1;
+				return '<input type="text" value="'.$last_priority.'" name="priority">';
+			});*/
+
+		    /*$crud->field_type('tran_type','dropdown', array(1 => "Application"), '1');*/
+
+		    $crud->field_type('product_tran_id','dropdown', $get_product_list);
+
+		    if(isset($this->uri->segments[3]) && $this->uri->segments[3] == "edit"){
+				$default = null;
+			}
+			else
+			{
+				$default = 1;
+			}
+
+		    $crud->field_type('status','dropdown', array(1 => "Active", 2 => 'Disable'), $default);
+
+			$output = $crud->render();
+			$this->_template_method_2($output);
+
+		}catch(Exception $e){
+			show_error($e->getMessage().' --- '.$e->getTraceAsString());
+		}
+
+	}
+
 	public function application_title_check_before_update($post_array, $primary_key){
 		$this->db->select('trans_title');
 		$this->db->from('tbl_application');
@@ -1240,6 +1297,21 @@ class Admin extends CI_Controller {
 		{
         	$category_id = $value['category_id'];
         	$category_name = $value['category_name'];
+        	$array[$category_id] = $category_name;
+        }
+        return $array;
+	}
+
+	public function get_product_list($category_type_id){
+		$this->db->select('tran_id, trans_title');
+		$this->db->from('tbl_product');
+		$this->db->where('status', '1');
+		$query = $this->db->get();
+		$array = array();
+		foreach ($query->result_array() as $key => $value)
+		{
+        	$category_id = $value['tran_id'];
+        	$category_name = $value['trans_title'];
         	$array[$category_id] = $category_name;
         }
         return $array;
